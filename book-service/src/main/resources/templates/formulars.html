@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Книжные формуляры</title>
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <th colspan="2">Список всех записей</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td >Запись</td>
+        <td >...</td>
+    </tr>
+    <tr th:each="el : ${formulars}">
+        <td th:text="${el.toString()}"></td>
+        <td><a th:href='@{/formulars/setStatusById={p}(p=${el.getId()})}' >Возврат</a></td>
+
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
+</html>
