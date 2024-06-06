@@ -32,6 +32,7 @@ public class BookService {
         if(name != null && !name.isEmpty()){
             newBook.setDescription(description);
         }
+        newBook.setOn_hands(0);
             bookRepository.save(newBook);
     }
     public void deleteBook(int code){
@@ -39,7 +40,7 @@ public class BookService {
         bookRepository.deleteByCode(code);
     }
     //запись о выдаче книги
-    public void addReportInFormular(int code, int userId) {
+    public void addReportInFormular(int code, String userId) {
         BookFormular bookFormular=new BookFormular();
         bookFormular.setBook_code(code);
         bookFormular.setUser_id(userId);
@@ -49,6 +50,16 @@ public class BookService {
         bookFormular.setDate_end(date_end);
 
         formularRepository.save(bookFormular);
+    }
+    public void addReturnBookInFormular(int id_formular) {
+        Optional<BookFormular> bookFormular=formularRepository.findById(id_formular);
+        BookFormular newForm=new BookFormular();
+        if(bookFormular.isPresent()){
+            newForm=bookFormular.get();
+            newForm.setReturn_status(1);
+            newForm.setDate_end(new Date());
+            formularRepository.save(newForm);
+        }
     }
     public List <BookFormular> getAllFormulars(){
         return (List<BookFormular>) formularRepository.findAll();

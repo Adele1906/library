@@ -7,19 +7,25 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="api-gateway" />
-        <module name="report-service" />
-        <module name="user-service" />
         <module name="book-service" />
+        <module name="log-audit-server" />
+        <module name="gateway-service" />
+        <module name="user-service" />
         <module name="eureka-server" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="api-gateway" target="17" />
+      <module name="report-service" target="17" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="api-gateway" options="-parameters" />
       <module name="book-service" options="-parameters" />
       <module name="eureka-server" options="-parameters" />
+      <module name="gateway-service" options="-parameters" />
+      <module name="log-audit-server" options="-parameters" />
       <module name="report-service" options="-parameters" />
       <module name="user-service" options="-parameters" />
     </option>

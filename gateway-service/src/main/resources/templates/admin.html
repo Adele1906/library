@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Админка</title>
+</head>
+<body>
+<h1><a href="http://localhost:8081/">Главная</a></h1>
+<br>
+<h1><a href="http://localhost:8081/user/lk">Личный кабинет</a></h1>
+<br>
+<h1><a href="http://localhost:8080/admin/master/console/" class="site" target="_blank">Keycloak</a><h1>
+<br>
+    <p>Все пользователи</p>
+<div class="cards" style="margin-left: auto; margin-right: auto">
+    <div class="card" th:each="el : ${users}">
+        <div style="border:2px solid #ccc;width: 300px; color:#000000">
+            <label>ID пользователя: </label><p th:text="${el.getId()}"></p>
+            <label>Имя: </label><p th:text="${el.getFirst_name()}"></p>
+            <label>Фамилия: </label><p th:text="${el.getLast_name()}"></p>
+            <label>Email: </label><p th:text="${el.getEmail()}"></p>
+            <label>Username: </label><p th:text="${el.getUsername()}"></p>
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

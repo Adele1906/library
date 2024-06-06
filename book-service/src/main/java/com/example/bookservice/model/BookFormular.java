@@ -6,7 +6,7 @@ import lombok.*;
 import java.util.Date;
 
 @Entity
-@Table(name="book_formular")
+@Table(name="library_book_formular", schema = "public")
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
@@ -19,7 +19,7 @@ public class BookFormular {
     @Column(name="book_code")
     int book_code;
     @Column(name="user_id")
-    int user_id;
+    String user_id;
     @Column(name="date_begin")
     Date date_begin;
     @Column(name="date_end")

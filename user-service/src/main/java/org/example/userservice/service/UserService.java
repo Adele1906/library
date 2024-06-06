@@ -1,22 +1,24 @@
 package org.example.userservice.service;
 
 import org.example.userservice.model.Book;
+import org.example.userservice.model.User;
 import org.example.userservice.repository.BookRepo;
 import org.example.userservice.repository.UserRepository;
-import org.example.userservice.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @Service
 public class UserService {
+
+    @Autowired
+    private BookRepo bookRepository;
     @Autowired
     UserRepository userRepository;
-    @Autowired
-    BookRepo bookRepository;
-    public Optional<User> findById(int id){
+
+
+    public User findById(String id){
 
         return userRepository.findById(id);
     }
@@ -29,4 +31,7 @@ public class UserService {
     }
 
 
+    public User findByEmail(String email) {
+        return userRepository.findByEmail(email);
+    }
 }

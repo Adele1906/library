@@ -3,7 +3,7 @@ package com.example.bookservice.model;
 import jakarta.persistence.*;
 import lombok.*;
 @Entity
-@Table(name="books")
+@Table(name="library_books", schema = "public")
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
@@ -16,5 +16,7 @@ public class Book {
     String name;
     @Column(name="description")
     String description;
+    @Column(name = "on_hands")
+    Integer on_hands;
 
 }

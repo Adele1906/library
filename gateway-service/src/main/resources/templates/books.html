@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Books</title>
+</head>
+<body>
+<h1><a href="http://localhost:8081/user/lk">Личный кабинет</a></h1>
+<br>
+<div class="cards">
+    <div class="card" th:each="el : ${books}">
+        <div style="border:2px solid #ccc;width: 300px; color:#000000">
+            <label>Код: </label><p th:text="${el.getCode()}"></p>
+        <label>Название: </label><p th:text="${el.getName()}"></p>
+        <label>Описание: </label><p th:text="${el.getDescription()}"></p>
+            <p>
+                <span th:if="${el.getOn_hands() == '0'}">
+                    <a th:href="@{/book/addbook/id={p}(p=${el.getCode()})}" class="btn btn-primary" >Получить</a>
+                </span>
+            </p>
+    </div>
+    </div>
+</div>
+</body>
+</html>

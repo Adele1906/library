@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Вход</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .login-container {
+            max-width: 400px;
+            margin: 0 auto;
+            margin-top: 30px;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .login-container input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+        }
+
+        .login-container input[type="submit"] {
+            background-color: #007bff;
+            color: #ffffff;
+            cursor: pointer;
+        }
+
+        .login-container input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        /* Стили для ссылки "Вернуться на главную" */
+        .back-to-home {
+            text-align: center;
+        }
+
+        .back-to-home a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .back-to-home a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Please Log In</h1>
+    <div th:if="${param.error}" class="alert alert-danger">
+        Invalid username or password.
+    </div>
+    <div th:if="${param.logout}" class="alert alert-success">
+        You have been logged out.
+    </div>
+    <div class="login-container">
+        <form th:action="@{/login}" method="post">
+            <div class="form-group">
+                <input type="text" class="form-control" name="username" placeholder="Username" required/>
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" name="password" placeholder="Password" required/>
+            </div>
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary" value="Log in"/>
+            </div>
+            <!-- Ссылка "Вернуться на главную" -->
+            <div class="form-group back-to-home">
+                Вернуться на <a href="http://localhost:8081/" class="back-to-home">главную</a> или
+                <a href="/registration" class="back-to-home">Зарегистрироваться</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-Jh0b4DD+6EWr1Su3LVIht8+tkBv2p7q3pDqPiOs49mMzmFt5DyW5CAwEAt8L1+Hq"
+        crossorigin="anonymous"></script>
+</body>
+</html>
